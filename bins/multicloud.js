@@ -120,18 +120,12 @@ function updateServiceConfig(conn, serviceId, env, configuration) {
 
                 if (error && error.code === 'ER_DUP_ENTRY') {
                     conn.query(sql.getUpdateConfigSql(serviceId, env, configuration, now), function (error, results) {
-                        conn.end(function () {
-
-                        });
+                        if (error) throw error;
 
                         console.log(`config the ${service} success.`);
                         resolve();
                     });
                 } else {
-                    conn.end(function () {
-
-                    });
-
                     console.log(`config the ${service} success.`);
                     resolve();
                 }
