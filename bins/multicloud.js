@@ -39,11 +39,10 @@ const temp = yargs.command('config', 'config the multicloud-configurations', (ya
     }).option('database', {
         demand: false,
         default: 'config',
-        describe: 'the db of the config service\'s database.',
+        describe: 'the name of the config service\'s database.',
         type: 'string'
     }).option('services', {
-        demand: false,
-        default: 'config',
+        demand: true,
         describe: 'the service id list. You can choose these.\n' + serviceStr,
         type: 'string'
     }).option('env', {
