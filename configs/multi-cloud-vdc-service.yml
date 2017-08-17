@@ -1,0 +1,13 @@
+web:
+  serviceName: multi-cloud-vdc-service
+  port: 3004
+dataSource:
+  database: vdc
+  host: ${db_host}
+  port: ${db_port}
+  username: ${db_username}
+  password: ${db_password}
+  pool:
+    min: 10
+    max: 300
+    idle: 60000

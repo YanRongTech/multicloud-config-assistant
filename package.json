@@ -1,0 +1,23 @@
+{
+  "name": "multicloud-config-assistant",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "multicloud": "bins/multicloud.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:YanRongTech/multicloud-config-repo.git"
+  },
+  "author": "YanrongTech",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "github:mysqljs/mysql",
+    "yamljs": "^0.3.0",
+    "yargs": "^8.0.2"
+  }
+}

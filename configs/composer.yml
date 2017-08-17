@@ -1,0 +1,47 @@
+app: yanrong
+web:
+  serviceName: composer
+  port: 3000
+  session:
+    timeout: 3540000
+memcached:
+  servers:
+    - 192.168.0.30:11211
+cache:
+  timeout: 2592000000
+oem: yanrong
+displays:
+  vdc: false
+  iscsi: false
+  scheduler:
+    server: false
+    disk: false
+
+###########################################
+# 1. YanRong Cloud
+# app: null
+# displays:
+#   vdc: true
+#   iscsi: false
+#   scheduler:
+#     server: true
+#     disk: true
+#
+# 2. YanRong Cloud Lite
+# app: YRCloudLite
+# displays:
+#   vdc: false
+#   iscsi: false
+#   scheduler:
+#     server: true
+#     disk: true
+#
+# 3. YanRong Store
+# app: YRStorage
+# displays:
+#   vdc: false
+#   iscsi: true
+#   scheduler:
+#     server: false
+#     disk: true
+###########################################

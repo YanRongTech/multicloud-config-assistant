@@ -1,0 +1,13 @@
+web:
+  serviceName: multi-cloud-service
+  port: 3001
+dataSource:
+  database: cloud-service
+  host: ${db_host}
+  port: ${db_port}
+  username: ${db_username}
+  password: ${db_password}
+  pool:
+    max: 100
+    min: 10
+    idle: 60000

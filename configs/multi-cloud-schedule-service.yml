@@ -1,0 +1,27 @@
+web:
+  serviceName: multi-cloud-schedule-service
+  port: 3006
+dataSource:
+  database: schedule
+  host: ${db_host}
+  port: ${db_port}
+  username: ${db_username}
+  password: ${db_password}
+  pool:
+    max: 300
+    min: 10
+    idle: 60000
+scheduler:
+  # instanceId: null
+
+  # misfireThreshold 允许任务错过计划触发时间的最大值
+  misfireThreshold: 6000
+
+  # idleWaitTime 当调度器空闲的时候等待时间
+  idleWaitTime: 30000
+
+  # 一次获取的trigger数量
+  onceAcquiredTrigger: 1
+
+  # triggerAcquisitionFireAheadTime 允许trigger提前被触发时间
+  triggerAcquisitionFireAheadTime: 0
