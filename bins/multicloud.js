@@ -78,7 +78,7 @@ const temp = yargs.command('config', 'config the multicloud-configurations', (ya
 }).usage('Usage: multicloud config -h for details')
     .help('h')
     .alias('h', 'help')
-    .epilog('copyright Yanrong Tech 2017.').argv;
+    .epilog('Copyright Yanrong Tech 2017.').argv;
 
 function compileConfig(configuration) {
     const commonConfig = YAML.load(path.resolve(__dirname, '../configs', 'application.yml'));

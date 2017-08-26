@@ -1,21 +1,20 @@
-app: yanrong
+app: {APP}
 web:
   serviceName: composer
   port: 3000
   session:
     timeout: 3540000
 memcached:
-  servers:
-    - 192.168.0.30:11211
+  servers: ['{MEMCACHE_IPS}']
 cache:
   timeout: 2592000000
-oem: yanrong
+oem: {OEM}
 displays:
-  vdc: false
-  iscsi: false
+  vdc: {DISPLAY_VDC}
+  iscsi: {DISPLAY_ISCSI}
   scheduler:
-    server: false
-    disk: false
+    server: {DISPLAY_SERVER}
+    disk: {DISPLAY_DISK}
 
 ###########################################
 # 1. YanRong Cloud

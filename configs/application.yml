@@ -1,4 +1,4 @@
-db_host: 192.168.0.30
+db_host: {VIP}
 db_port: 3306
-db_username: root
-db_password: Passw0rd
+db_username: {MYSQL_USER}
+db_password: {MYSQL_PWD}
