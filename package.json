@@ -1,9 +1,9 @@
 {
   "name": "multicloud-config-assistant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "bin": {
-    "multicloud": "bins/multicloud.js"
+    "multicloud": "./bins/multicloud.js"
   },
   "main": "index.js",
   "scripts": {
