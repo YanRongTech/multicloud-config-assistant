@@ -1,5 +1,7 @@
 # multicloud-config-assistant
 
+A cli tool for configuring the multicloud platform.
+
 ## Usage
 ```
 npm install multicloud-config-assistant -g
@@ -41,12 +43,12 @@ Copyright Yanrong Tech 2017.
 
 ### Config Files
 
-* multi-cloud-content-service.yml
-* multi-cloud-schedule-service.yml
-* multi-cloud-service.yml
-* multi-cloud-user-service.yml
-* multi-cloud-vdc-service.yml
-* composer.yml
-* application.yml
+* multi-cloud-content-service.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/multi-cloud-content-service.yml)
+* multi-cloud-schedule-service.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/multi-cloud-schedule-service.yml)
+* multi-cloud-service.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/multi-cloud-service.yml)
+* multi-cloud-user-service.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/multi-cloud-user-service.yml)
+* multi-cloud-vdc-service.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/multi-cloud-vdc-service.yml)
+* composer.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/composer.yml)
+* application.yml [detials](https://github.com/YanRongTech/multicloud-config-assistant/blob/master/configs/application.yml)
 
 The application.yml is a global config file.
