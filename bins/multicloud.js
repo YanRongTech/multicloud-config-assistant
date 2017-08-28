@@ -51,20 +51,31 @@ const temp = yargs.command('config', 'config the multicloud-configurations', (ya
         default: 'production',
         describe: 'the env of the service\'s configuration.',
         type: 'string'
+    }).option('path', {
+        demand: false,
+        describe: 'the path of the configuration files.',
+        type: 'string'
     }).usage('Usage: multicloud config [options]')
-        .example('multicloud config --host=127.0.0.1 --port=3306 --username=root --password=root --database=config --services=2,3', '')
+        .example('multicloud config --host=127.0.0.1 --port=3306 --username=root --password=root --database=config --services=2,3 --path=/root/configs', '')
         .help('h')
         .alias('h', 'help')
-        .epilog('copyright Yanrong Tech 2017.');
+        .epilog('Copyright Yanrong Tech 2017.');
 }, (argv) => {
     const serviceIds = argv.services.split(',').filter(id => id);
     const conn = mysql.getConn(argv);
     conn.connect();
 
+    let configPath = '';
+    if (argv.path) {
+        configPath = path.resolve(argv.path);
+    } else {
+        configPath = path.resolve(__dirname, '../configs');
+    }
+
     const promises = [];
     serviceIds.forEach(function (id) {
-        const file = readServiceConfigFile(id);
-        const configuration = compileConfig(file.toString());
+        const file = readServiceConfigFile(configPath, id);
+        const configuration = compileConfig(configPath, file.toString());
 
         promises.push(updateServiceConfig(conn, id, argv.environment, configuration));
     });
@@ -80,8 +91,8 @@ const temp = yargs.command('config', 'config the multicloud-configurations', (ya
     .alias('h', 'help')
     .epilog('Copyright Yanrong Tech 2017.').argv;
 
-function compileConfig(configuration) {
-    const commonConfig = YAML.load(path.resolve(__dirname, '../configs', 'application.yml'));
+function compileConfig(configPath, configuration) {
+    const commonConfig = YAML.load(path.resolve(configPath, 'application.yml'));
     for (let key in commonConfig) {
         if (!commonConfig.hasOwnProperty(key)) {
             continue;
@@ -94,14 +105,14 @@ function compileConfig(configuration) {
     return configuration;
 }
 
-function readServiceConfigFile(serviceId) {
+function readServiceConfigFile(configPath, serviceId) {
     if (!config.services[serviceId]) {
         throw new Error(`The service id ${serviceId} is not exist.`);
     }
 
     const service = config.services[serviceId];
 
-    return fs.readFileSync(path.resolve(__dirname, '../configs', service + '.yml'));
+    return fs.readFileSync(path.resolve(configPath, service + '.yml'));
 }
 
 function updateServiceConfig(conn, serviceId, env, configuration) {
